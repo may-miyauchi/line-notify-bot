@@ -3,8 +3,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 
 const LINE_ACCESS_TOKEN = process.env.LINE_ACCESS_TOKEN;
-const TO_GROUP_ID = process.env.TO_GROUP_ID;  // e.g. 'Uxxxxxxxxxx' ← 今は個人ID予定
-
+const TO_GROUP_ID = 'Uff6da2363e9454f5ed36992894521ee7'; //
 const app = express();
 app.use(bodyParser.json());
 
@@ -50,7 +49,7 @@ app.post('/webhook', (req, res) => {
   res.sendStatus(200);
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`LINE通知Botサーバー起動中：ポート${PORT}`);
 });
